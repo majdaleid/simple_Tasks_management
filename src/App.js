@@ -34,11 +34,18 @@ function deleteTask(id)
   
 }
 
+function ToggleColor(id)
+{
+ let Tasks=tasks.map(task=>{
+  return task.id===id?{...task,reminder:!task.reminder}:task
+ })
+ setTasks(Tasks)
+}
   return (
     <div>
 <Header title={"App Tracker"}/>
     <AddTask />
-    <Tasks  Tasks={tasks} deleteTask={deleteTask}/>
+    {tasks.length>0 ? <Tasks  Tasks={tasks} deleteTask={deleteTask} ToggleColor={ToggleColor}/>:"No Tasks" }
     </div>
     
   )

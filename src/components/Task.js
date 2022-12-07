@@ -2,7 +2,7 @@ import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 export default function Task(props) {
   return (
-    <div className={`task ${props.task.reminder?"reminder":""}`}>
+    <div className={`task ${props.task.reminder?"reminder":""}`} onDoubleClick={()=>props.ToggleColor(props.task.id)}>
         <FaTimes onClick={()=>props.deleteTask(props.task.id)}/>
         <h1>{props.task.text}</h1>
         <h2>{props.task.day}</h2>

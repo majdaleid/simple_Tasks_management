@@ -4,7 +4,7 @@ import AddTask from './components/AddTask'
 import Tasks from './components/Tasks'
 export default function App() {
 
- const defaultTasks=[
+ let defaultTasks=[
     {
         id:1,
         text:"doctor appointment",
@@ -25,17 +25,20 @@ export default function App() {
     }
 ]
 
+const [tasks,setTasks]=React.useState(defaultTasks)
+
 function deleteTask(id)
 {
-  console.log(id)
+  let filterTasks=tasks.filter(task=>task.id!=id);
+  setTasks(filterTasks)
+  
 }
 
   return (
     <div>
-
 <Header title={"App Tracker"}/>
     <AddTask />
-    <Tasks  Tasks={defaultTasks} delete={deleteTask}/>
+    <Tasks  Tasks={tasks} deleteTask={deleteTask}/>
     </div>
     
   )

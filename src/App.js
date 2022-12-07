@@ -9,29 +9,33 @@ export default function App() {
         id:1,
         text:"doctor appointment",
         day:"day 1",
-        remember:false,
+        reminder:false,
     },
     {
         id:2,
         text:"Meeting at School",
         day:"day 2",
-        remember:false,
+        reminder:false,
     },
     {
         id:3,
         text:"Food Shopping",
         day:"day 3",
-        remember:true
+        reminder:true
     }
 ]
 
+function deleteTask(id)
+{
+  console.log(id)
+}
 
   return (
     <div>
 
 <Header title={"App Tracker"}/>
     <AddTask />
-    <Tasks  Tasks={defaultTasks}/>
+    <Tasks  Tasks={defaultTasks} delete={deleteTask}/>
     </div>
     
   )

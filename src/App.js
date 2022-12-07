@@ -41,10 +41,19 @@ function ToggleColor(id)
  })
  setTasks(Tasks)
 }
+
+function addTask(task){
+console.log(task)
+const id=Math.floor(Math.random()*1000)+1
+const newTask={id,...task}
+setTasks([...tasks,newTask])
+}
+
+
   return (
     <div>
 <Header title={"App Tracker"}/>
-    <AddTask />
+    <AddTask  Add={addTask}/>
     {tasks.length>0 ? <Tasks  Tasks={tasks} deleteTask={deleteTask} ToggleColor={ToggleColor}/>:"No Tasks" }
     </div>
     

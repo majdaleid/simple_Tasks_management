@@ -4,7 +4,7 @@ import AddTask from './components/AddTask'
 import Tasks from './components/Tasks'
 export default function App() {
 
- let defaultTasks=[
+/* let defaultTasks=[
     {
         id:1,
         text:"doctor appointment",
@@ -24,16 +24,42 @@ export default function App() {
         reminder:true
     }
 ]
+*/
+const [tasks,setTasks]=React.useState([])
 
-const [tasks,setTasks]=React.useState(defaultTasks)
+React.useEffect(()=>{
+
+  getTasksFromServer()
+
+},[])
+
+const getTasksFromServer=async()=>{
+  const getTasks=await fetchTasks()
+  setTasks(getTasks)
+}
+
+// fetch tasks 
+
+const fetchTasks=async ()=>{
+const response=await fetch("http://localhost:5001/tasks");
+const json=await response.json()
+return json;
+}
+
 
 function deleteTask(id)
 {
+  deleteTaskFromServer(id)
   let filterTasks=tasks.filter(task=>task.id!=id);
   setTasks(filterTasks)
   
 }
 
+const deleteTaskFromServer=async(id)=>{
+  const response=await fetch(`http://localhost:5001/tasks/${id}`,{
+   method:'delete' 
+  });
+}
 function ToggleColor(id)
 {
  let Tasks=tasks.map(task=>{

@@ -27,10 +27,10 @@ npm start
 npm run server to run json server 
 
 
-###Description
+### Description
 
 
-![image](https://user-images.githubusercontent.com/34122653/206590111-2308709a-539c-45e4-ae20-73c6517683b6.png)
+![image](https://user-images.githubusercontent.com/34122653/206591483-343f1631-94e9-49bb-b0dd-58a75aaef91a.png)
 
 small react app to refresh your reactjs knowledge 
 

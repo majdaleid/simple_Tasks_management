@@ -17,26 +17,26 @@ setDay('')
 setReminder(false)
 }
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="form">
         <div>
             <label>
-                Task
+                Task:
             </label>
             <input type="text" placeholder='Add Task' value={text} onChange={(e)=>setText(e.target.value)}></input>
         </div>
         <div>
             <label>
-             Day & Time
+             Day & Time:
             </label>
             <input type="text" placeholder='Add Day & Time' value={day} onChange={(e)=>setDay(e.target.value)}></input>
         </div>
         <div>
             <label>
-                Set Reminder
+                Set Reminder:
             </label>
             <input type="checkbox" value={reminder} checked={reminder} onChange={(e)=>setReminder(e.currentTarget.checked)}></input>
         </div>
-        <input type="submit" value="save task" />
+        <input type="submit" value="save task" className="save-task"/>
     </form>
 
   )

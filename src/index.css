@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding:10%;
+  background:lightblue url(../public/toDoList.jpg) no-repeat fixed center;
 }
 
 code {
@@ -12,20 +14,75 @@ code {
     monospace;
 }
 
-
+header h1 {
+  text-align: center;
+}
 .task {
-  background: #f4f4f4;
+  background: #f4f4f491;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  display:flex;
+}
+ 
+
+.task > h1{
+  flex-grow: 1;
 }
 
 .task.reminder {
-  background:  green;
+  background:  rgba(42, 122, 226, 0.25)
 }
 
 .task h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 34px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+
+  border-radius: 10%;
+  margin-top:10px;
+   
+
+}
+
+.form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button{
+  display:flex;
+  margin:auto;
+  margin-bottom: 10px;
+}
+
+.save-task{
+  background-color: rgb(26, 99, 193);
+  border-radius: 10px;
+  width: 10%;
+  height: 7vh;
+}
+
+.AddTaskButton{
+  width:20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  
+}
+input{
+  width: 10vw;
+  height: 5vh;
 }

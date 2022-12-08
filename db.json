@@ -1,16 +1,22 @@
 {
   "tasks": [
     {
-      "text": "WEREWR",
-      "day": "WEREW",
+      "text": "learn web3",
+      "day": "december 20",
       "reminder": true,
-      "id": 3
+      "id": 5
     },
     {
-      "text": "sasada",
-      "day": "sadsad",
+      "text": "learn seo",
+      "day": "december 22",
+      "reminder": true,
+      "id": 6
+    },
+    {
+      "text": "Design pattern",
+      "day": "december 25",
       "reminder": false,
-      "id": 4
+      "id": 7
     }
   ]
 }

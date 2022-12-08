@@ -4,7 +4,7 @@ export default function Header(props) {
   return (
    <header>
  <h1>{props.title}</h1>
- <button>Add Task</button>
+ <button className='AddTaskButton' onClick={()=>props.toggleShowAddTask()}>{props.showAddTask?"Add Task":"close"}</button>
    </header>
   )
 }

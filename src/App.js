@@ -26,6 +26,7 @@ export default function App() {
 ]
 */
 const [tasks,setTasks]=React.useState([])
+const [showAddTask,setShowAddTask]=React.useState(true)
 
 React.useEffect(()=>{
 
@@ -120,10 +121,14 @@ const addTasktoServer=async(task)=>{
   setTasks([...tasks,json])
 }
 
+function toggleShowAddTask(){
+  setShowAddTask(prevState=>!prevState)
+}
+
   return (
     <div>
-<Header title={"App Tracker"}/>
-    <AddTask  Add={addTask}/>
+<Header title={"App Tracker"} showAddTask={showAddTask} toggleShowAddTask={toggleShowAddTask}/>
+    {showAddTask && <AddTask  Add={addTask} />}
     {tasks.length>0 ? <Tasks  Tasks={tasks} deleteTask={deleteTask} ToggleColor={ToggleColor}/>:"No Tasks" }
     </div>
     

@@ -60,21 +60,65 @@ const deleteTaskFromServer=async(id)=>{
    method:'delete' 
   });
 }
+
+
 function ToggleColor(id)
 {
+ const fetchTaskFromServer=async(id)=>{
+  const fetchData=await fetchOneTask(id)
+  const updTask={...fetchData,reminder:!fetchData.reminder}
+
+  const response=await fetch(`http://localhost:5001/tasks/${id}`,{
+    method:'PUT',
+    headers:{
+      'Content-type':'application/json',
+    },
+    body:JSON.stringify(updTask)
+  })
+  const editTask=await response.json();
+
+  let Tasks=tasks.map(task=>{
+    return task.id===id?{...task,reminder:!editTask.reminder}:task
+   })
+   setTasks(Tasks)
+ }
+
+ fetchTaskFromServer(id)
+ /*
  let Tasks=tasks.map(task=>{
   return task.id===id?{...task,reminder:!task.reminder}:task
  })
- setTasks(Tasks)
+ setTasks(Tasks)*/
 }
+
+
+const fetchOneTask=async(id)=>{
+  const response=await fetch(`http://localhost:5001/tasks/${id}`);
+  const json=await response.json();
+  return json;
+}
+
+
 
 function addTask(task){
-console.log(task)
+/*console.log(task)
 const id=Math.floor(Math.random()*1000)+1
 const newTask={id,...task}
-setTasks([...tasks,newTask])
+setTasks([...tasks,newTask])*/
+addTasktoServer(task)
 }
 
+const addTasktoServer=async(task)=>{
+  const response=await fetch(`http://localhost:5001/tasks`,{
+    method:'POST',
+    headers:{
+      'Content-type':'application/json',
+    },
+    body:JSON.stringify(task),
+  })
+  const json=await response.json();
+  setTasks([...tasks,json])
+}
 
   return (
     <div>
